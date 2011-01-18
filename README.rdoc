@@ -1,0 +1,3 @@
+= kanbanery
+
+Simple redmine plugin that allows one to push issues over to kanbanery.com

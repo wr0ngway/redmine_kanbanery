@@ -1,0 +1,7 @@
+en:
+  button_kanbanery_push: "Push to Kanbanery"
+  kanbanery_settings_label_api_key: "Kanbanery API key"
+  kanbanery_settings_label_workspace: "Kanbanery Workspace"
+  kanbanery_settings_label_workspace_help: "The name of the workspace in kanbanery that owns the project specified below"
+  kanbanery_settings_label_project: "Kanbanery Project ID"
+  kanbanery_settings_label_project_help: "The project id in kanbanery that you want to push issues to"

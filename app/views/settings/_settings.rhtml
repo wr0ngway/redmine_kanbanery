@@ -1,0 +1,18 @@
+<p>
+  <%= content_tag(:label, l(:kanbanery_settings_label_api_key)) %>
+  <%= text_field_tag("settings[api_key]", @settings['api_key']) %>
+</p>
+
+<p>
+  <%= content_tag(:label, l(:kanbanery_settings_label_workspace)) %>
+  <%= text_field_tag("settings[workspace_name]", @settings['workspace_name']) %>
+  <br />
+  <%= content_tag(:span, l(:kanbanery_settings_label_workspace_help)) %>
+</p>
+
+<p>
+  <%= content_tag(:label, l(:kanbanery_settings_label_project)) %>
+  <%= text_field_tag("settings[project_id]", @settings['project_id']) %>
+  <br />
+  <%= content_tag(:span, l(:kanbanery_settings_label_project_help)) %>
+</p>
