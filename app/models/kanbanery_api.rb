@@ -9,7 +9,8 @@ class KanbaneryAPI
 
   def find_task(task_id)
     task = nil
-    response = self.class.get("/tasks/#{task_id}.json")
+    url = "/tasks/#{task_id}.json"
+    response = self.class.get(url)
     if response.code == 200
       task = response.parsed_response
     end
@@ -17,32 +18,35 @@ class KanbaneryAPI
   end
 
   def create_task(task)
-    response = self.class.post("/projects/#{Setting.plugin_redmine_kanbanery['project_id']}/tasks.json", {:body => task})
+    url = "/projects/#{Setting.plugin_redmine_kanbanery['project_id']}/tasks.json"
+    response = self.class.post(url, {:body => task})
 
     if response.code >= 200 &&response.code < 300
       return response.parsed_response
     else
-      raise "Failed to create task: #{response.inspect}"
+      raise "Failed to create task (#{url} - #{task.inspect}): #{response.inspect}"
     end
   end
 
   def update_task(task_id, task)
-    response = self.class.put("/tasks/#{task_id}.json", {:body => task})
+    url = "/tasks/#{task_id}.json"
+    response = self.class.put(url, {:body => task})
 
     if response.code >= 200 &&response.code < 300
       return response.parsed_response
     else
-      raise "Failed to update task: #{response.inspect}"
+      raise "Failed to update task (#{url} - #{task.inspect}): #{response.inspect}"
     end
   end
 
   def destroy_task(task_id)
-    response = self.class.delete("tasks/#{task_id}.json")
+    url = "/tasks/#{task_id}.json"
+    response = self.class.delete(url)
 
     if response.code >= 200 &&response.code < 300
       return response.parsed_response
     else
-      raise "Failed to destroy task: #{response.inspect}"
+      raise "Failed to destroy task (#{url}): #{response.inspect}"
     end
   end
 
